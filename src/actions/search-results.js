@@ -270,6 +270,8 @@ export function saveSearchResult (result) {
     const { search: { resultId } } = getState();
     if (result.graphql.searchId === resultId) { // check data corresponds to the current search
       return dispatch(mixer(result));
+    } else if (result.graphql.searchId === resultId + ':related') {
+      console.log('RELATED RESULTS>>>', result);
     }
   };
 }
