@@ -34,6 +34,7 @@ export default class Root extends Component {
 
   componentWillMount () {
     let currentPath = store.getState().routing.locationBeforeTransitions.pathname;
+    window.history.replaceState('', '', currentPath);
     this.socket = websocketService.initialise(actionCreatorBinder, currentPath);
     fingerprintService.initialise(actionCreatorBinder);
   }
