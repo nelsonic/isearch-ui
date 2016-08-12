@@ -37,8 +37,7 @@ class ISearch extends Component {
       setNumberOfAdults,
       setDepartureAirport,
       setDuration,
-      updateHeaderTitles,
-      searchForTag
+      updateHeaderTitles
     } = this.props;
     let parsedQuery = {};
     params.map((param) => {
@@ -52,7 +51,6 @@ class ISearch extends Component {
       setDuration(durationWeeks + ' uge' + (durationWeeks > 1 ? 'r' : ''));
     }
     if (parsedQuery.travelDepartureCode && departureOptions[parsedQuery.travelDepartureCode]) setDepartureAirport(departureOptions[parsedQuery.travelDepartureCode]);
-    if (parsedQuery.travelCountryCode) searchForTag(parsedQuery.travelCountryCode);
     updateHeaderTitles();
   }
 
@@ -300,7 +298,6 @@ ISearch.propTypes = {
   removeTag: PropTypes.func,
   resetTags: PropTypes.func,
   feedEnd: PropTypes.bool,
-  searchForTag: PropTypes.func,
 
   // tiles
   removeTile: PropTypes.func,
